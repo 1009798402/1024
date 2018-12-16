@@ -1,0 +1,13 @@
+server: 
+  port: 9003
+spring: 
+  application:  
+    name: 1024-qa #指定服务名
+  datasource:  
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.68.128:3306/tensquare_qa?characterEncoding=UTF8&useSSL=false
+    username: root
+    password: admin123
+  jpa: 
+    database: MySQL
+    show-sql: true
