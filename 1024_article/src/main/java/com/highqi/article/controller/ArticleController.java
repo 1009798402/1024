@@ -1,6 +1,7 @@
 package com.highqi.article.controller;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,7 +11,6 @@ import com.highqi.article.service.ArticleService;
 import entity.PageResult;
 import entity.Result;
 
-import javax.annotation.Resource;
 
 /**
  * @Author: 陈建春
@@ -22,7 +22,7 @@ import javax.annotation.Resource;
 @RequestMapping("/article")
 public class ArticleController {
 
-	@Resource
+	@Autowired
 	private ArticleService articleService;
 
 	

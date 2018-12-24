@@ -11,9 +11,11 @@
         <module name="1024_common" />
         <module name="1024_gathering" />
         <module name="1024_qa" />
+        <module name="1024_rabbitmq_demo" />
         <module name="1024_recruit" />
         <module name="1024_search" />
         <module name="1024_spit" />
+        <module name="1024_user" />
       </profile>
     </annotationProcessing>
   </component>
@@ -24,9 +26,11 @@
       <module name="1024_common" options="-parameters" />
       <module name="1024_gathering" options="-parameters" />
       <module name="1024_qa" options="-parameters" />
+      <module name="1024_rabbitmq_demo" options="-parameters" />
       <module name="1024_recruit" options="-parameters" />
       <module name="1024_search" options="-parameters" />
       <module name="1024_spit" options="-parameters" />
+      <module name="1024_user" options="-parameters" />
     </option>
   </component>
 </project>

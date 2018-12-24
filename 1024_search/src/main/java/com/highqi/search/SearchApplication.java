@@ -1,4 +1,4 @@
-package com.highqi.controller;
+package com.highqi.search;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
