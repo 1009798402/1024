@@ -10,9 +10,11 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.jpa.domain.Specification;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import org.springframework.transaction.annotation.Transactional;
@@ -36,6 +38,9 @@ public class AdminService {
 	
 	@Resource
 	private IdWorker idWorker;
+
+	@Autowired
+	private BCryptPasswordEncoder bCryptPasswordEncoder;
 
 	/**
 	 * 查询全部列表
@@ -85,6 +90,7 @@ public class AdminService {
 	 */
 	public void add(Admin admin) {
 		admin.setId( idWorker.nextId()+"" );
+		admin.setPassword(bCryptPasswordEncoder.encode(admin.getPassword()));
 		adminDao.save(admin);
 	}
 

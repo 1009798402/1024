@@ -10,6 +10,7 @@
         <module name="1024_base" />
         <module name="1024_common" />
         <module name="1024_gathering" />
+        <module name="1024_massage" />
         <module name="1024_qa" />
         <module name="1024_rabbitmq_demo" />
         <module name="1024_recruit" />
@@ -25,6 +26,7 @@
       <module name="1024_base" options="-parameters" />
       <module name="1024_common" options="-parameters" />
       <module name="1024_gathering" options="-parameters" />
+      <module name="1024_massage" options="-parameters" />
       <module name="1024_qa" options="-parameters" />
       <module name="1024_rabbitmq_demo" options="-parameters" />
       <module name="1024_recruit" options="-parameters" />
