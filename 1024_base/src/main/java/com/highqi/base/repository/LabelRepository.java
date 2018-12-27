@@ -10,5 +10,5 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
  * @Date: 2018-12-15 16:05
  * @Description: Label的Repository
  */
-public interface LabelRepository extends JpaRepository<Label,String>, JpaSpecificationExecutor<Label> {
+public interface LabelRepository extends JpaRepository<Label, String>, JpaSpecificationExecutor<Label> {
 }

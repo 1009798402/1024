@@ -10,6 +10,7 @@ import com.highqi.user.pojo.User;
  * @Date: 2018-12-24 21:39:16
  * @Description: Repository数据接口
  */
-public interface UserDao extends JpaRepository<User,String>,JpaSpecificationExecutor<User>{
-	
+public interface UserDao extends JpaRepository<User, String>, JpaSpecificationExecutor<User> {
+
+    User findByMobile(String mobile);
 }

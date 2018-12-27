@@ -12,9 +12,9 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum RecruitStateEnum {
 
-    CLOSE("0","关闭"),
-    OPEN("1","打开"),
-    RECOMMEND("2","推荐");
+    CLOSE("0", "关闭"),
+    OPEN("1", "打开"),
+    RECOMMEND("2", "推荐");
 
     private String state;
     private String msg;

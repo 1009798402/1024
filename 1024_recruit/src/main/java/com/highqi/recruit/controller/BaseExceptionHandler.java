@@ -11,11 +11,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
  */
 @ControllerAdvice
 public class BaseExceptionHandler {
-	
+
     @ExceptionHandler(value = Exception.class)
     @ResponseBody
-    public Result error(Exception e){
-        e.printStackTrace();        
-		return Result.error(e.getMessage());
+    public Result error(Exception e) {
+        e.printStackTrace();
+        return Result.error(e.getMessage());
     }
 }

@@ -10,7 +10,7 @@ import org.springframework.data.elasticsearch.repository.ElasticsearchRepository
  * @Date: 2018-12-20 20:15
  * @Description:
  */
-public interface SearchDao extends ElasticsearchRepository<Article,String> {
+public interface SearchDao extends ElasticsearchRepository<Article, String> {
 
     Page<Article> findByTitleLikeOrContentLike(String title, String content, Pageable pageable);
 

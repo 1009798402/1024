@@ -11,8 +11,11 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
+import javax.servlet.http.HttpServletRequest;
 
 import com.highqi.user.constants.UserConstant;
+import contents.CommonContent;
+import io.jsonwebtoken.Claims;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.lang3.RandomUtils;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -23,6 +26,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import org.springframework.transaction.annotation.Transactional;
@@ -31,6 +35,7 @@ import util.IdWorker;
 
 import com.highqi.user.dao.UserDao;
 import com.highqi.user.pojo.User;
+import util.JwtUtil;
 
 /**
  * @Author: 陈建春
@@ -52,6 +57,15 @@ public class UserService {
 
     @Autowired
     private RabbitTemplate rabbitTemplate;
+
+    @Autowired
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
+
+    @Autowired
+    private JwtUtil jwtUtil;
+
+    @Autowired
+    private HttpServletRequest request;
 
     /**
      * 查询全部列表
@@ -106,6 +120,7 @@ public class UserService {
      */
     public void add(User user) {
         user.setId(idWorker.nextId() + "");
+        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         userDao.save(user);
     }
 
@@ -121,9 +136,19 @@ public class UserService {
     /**
      * 删除
      *
-     * @param id
+     * @param id 要删除的用户id
      */
     public void deleteById(String id) {
+
+        Claims claims = (Claims) request.getAttribute(CommonContent.ADMIN_PERMISSIONS);
+
+        if (claims == null) {
+            throw new RuntimeException("not enough permissions!");
+        }
+        if (!claims.get("role").equals("admin")) {
+            throw new RuntimeException("not enough permissions!");
+        }
+
         userDao.deleteById(id);
     }
 
@@ -190,7 +215,7 @@ public class UserService {
         Map<String, String> map = new HashMap<>();
 
         map.put("mobile", mobile);
-        map.put("checkcode",checkCode);
+        map.put("checkcode", checkCode);
 
         //存入缓存  10分钟
         redisTemplate.opsForValue().set(UserConstant.REDIS_CODE + mobile, checkCode, 10, TimeUnit.MINUTES);
@@ -211,9 +236,19 @@ public class UserService {
     public Boolean checkRegister(String code, String mobile) {
 
         //从根据手机 从redis取出来
-        String codeByRedis =  redisTemplate.opsForValue().get(UserConstant.REDIS_CODE + mobile);
+        String codeByRedis = redisTemplate.opsForValue().get(UserConstant.REDIS_CODE + mobile);
 
         //相等 且不为空 返回true
         return !StringUtils.isEmpty(codeByRedis) && codeByRedis.equals(code);
+    }
+
+    public User login(User user) {
+
+        User byMobile = userDao.findByMobile(user.getMobile());
+
+        if (byMobile != null && bCryptPasswordEncoder.matches(user.getPassword(), byMobile.getPassword())) {
+            return byMobile;
+        }
+        return null;
     }
 }

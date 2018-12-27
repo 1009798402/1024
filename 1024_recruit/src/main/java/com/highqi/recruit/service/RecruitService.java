@@ -113,21 +113,21 @@ public class RecruitService {
 
     /**
      * 查询满足state条件的Recruits
+     *
      * @param state 状态
      */
-    public List<Recruit> findRecriotByState(String state){
+    public List<Recruit> findRecriotByState(String state) {
         return recruitDao.findByStateOrderByCreatetimeDesc(state);
     }
 
     /**
      * 查询不满足state条件的Recruits
+     *
      * @param state 状态
      */
-    public List<Recruit> findRecriotByNotState(String state){
+    public List<Recruit> findRecriotByNotState(String state) {
         return recruitDao.findByStateNotOrderByCreatetimeDesc(state);
     }
-
-
 
 
     /**

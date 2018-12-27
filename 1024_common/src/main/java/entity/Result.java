@@ -26,20 +26,29 @@ public class Result {
     }
 
 
-    public static Result OK(){
-        return new Result(true, StatusCodeEnum.OK.getStatusCode(),"success");
+    public static Result OK() {
+        return new Result(true, StatusCodeEnum.OK.getStatusCode(), "success");
     }
 
-    public static Result OK(Object data){
-        return new Result(true, StatusCodeEnum.OK.getStatusCode(),"success",data);
+    public static Result OK(Object data) {
+        return new Result(true, StatusCodeEnum.OK.getStatusCode(), "success", data);
     }
 
-    public static Result error(){
-        return new Result(false, StatusCodeEnum.ERROR.getStatusCode(),"error");
+    public static Result error() {
+        return new Result(false, StatusCodeEnum.ERROR.getStatusCode(), "error");
 
     }
-    public static Result error(Object data){
-        return new Result(false, StatusCodeEnum.ERROR.getStatusCode(),"error",data);
+
+    public static Result error(Object data) {
+        return new Result(false, StatusCodeEnum.ERROR.getStatusCode(), "error", data);
+    }
+
+    public static Result loginError() {
+        return new Result(false, StatusCodeEnum.LOGIN_ERROR.getStatusCode(), "login error");
+    }
+
+    public static Result loginError(Object data) {
+        return new Result(false, StatusCodeEnum.LOGIN_ERROR.getStatusCode(), "login error", data);
     }
 
 

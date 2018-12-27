@@ -1,13 +1,19 @@
-server: 
+server:
   port: 9003
-spring: 
-  application:  
+spring:
+  application:
     name: 1024-qa #指定服务名
-  datasource:  
+  datasource:
     driverClassName: com.mysql.jdbc.Driver
-    url: jdbc:mysql://192.168.68.128:3306/tensquare_qa?characterEncoding=UTF8&useSSL=false
+    url: jdbc:mysql://192.168.68.129:3306/tensquare_qa?characterEncoding=UTF8&useSSL=false
     username: root
     password: admin123
-  jpa: 
+  jpa:
     database: MySQL
     show-sql: true
+jwt:
+  config:
+    #盐(加密规则)
+    salt: highqi_123
+    #过期时间 毫秒
+    expirationTime: 1800000

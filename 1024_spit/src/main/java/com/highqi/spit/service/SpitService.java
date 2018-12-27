@@ -54,7 +54,7 @@ public class SpitService {
         spit.setComment(0);//回复数
         spit.setState("1");//状态
         String parentId = spit.getParentid();
-        if (!StringUtils.isEmpty(parentId)){
+        if (!StringUtils.isEmpty(parentId)) {
 
             mongoTemplate.updateFirst(new Query().addCriteria(Criteria.where("_id").is(parentId)), new Update().inc("comment", 1), "spit");
         }

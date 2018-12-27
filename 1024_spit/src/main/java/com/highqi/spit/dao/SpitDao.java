@@ -10,7 +10,7 @@ import org.springframework.data.mongodb.repository.MongoRepository;
  * @Date: 2018-12-18 20:16
  * @Description:
  */
-public interface SpitDao extends MongoRepository<Spit,String> {
+public interface SpitDao extends MongoRepository<Spit, String> {
 
     Page<Spit> findByParentid(String parentid, Pageable pageable);
 }

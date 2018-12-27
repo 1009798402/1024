@@ -7,9 +7,9 @@ import com.highqi.qa.pojo.Reply;
 
 /**
  * @Author: 陈建春
- * @Date: 
+ * @Date:
  * @Description: Repository数据接口
  */
-public interface ReplyDao extends JpaRepository<Reply,String>,JpaSpecificationExecutor<Reply>{
-	
+public interface ReplyDao extends JpaRepository<Reply, String>, JpaSpecificationExecutor<Reply> {
+
 }

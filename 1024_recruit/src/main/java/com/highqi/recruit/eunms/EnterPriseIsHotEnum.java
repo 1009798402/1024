@@ -12,8 +12,8 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum EnterPriseIsHotEnum {
 
-    NOT_HOT("0","非热门"),
-    HOT("1","热门");
+    NOT_HOT("0", "非热门"),
+    HOT("1", "热门");
 
     private String isHot;
     private String msg;

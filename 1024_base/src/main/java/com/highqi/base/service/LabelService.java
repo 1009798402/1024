@@ -47,7 +47,7 @@ public class LabelService {
     public Page<Label> pageSearchLabel(Integer page, Integer size, Label label) {
 
         //分页对象
-        Pageable pageable = PageRequest.of(page-1,size);
+        Pageable pageable = PageRequest.of(page - 1, size);
 
         return repository.findAll(new Specification<Label>() {
             @Override
@@ -72,6 +72,6 @@ public class LabelService {
 
                 return criteriaBuilder.and(predicates);
             }
-        },pageable);
+        }, pageable);
     }
 }

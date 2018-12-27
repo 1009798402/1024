@@ -12,9 +12,11 @@ import java.util.List;
  * @Date: 2018-12-16 12:30:43
  * @Description: Enterprise Repository数据接口
  */
-public interface EnterpriseDao extends JpaRepository<Enterprise,String>,JpaSpecificationExecutor<Enterprise>{
+public interface EnterpriseDao extends JpaRepository<Enterprise, String>, JpaSpecificationExecutor<Enterprise> {
 
 
-    /** isHot条件查询 .*/
-	List<Enterprise> findByIshot(String isHot);
+    /**
+     * isHot条件查询 .
+     */
+    List<Enterprise> findByIshot(String isHot);
 }

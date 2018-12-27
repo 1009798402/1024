@@ -7,9 +7,9 @@ import com.highqi.article.pojo.Channel;
 
 /**
  * @Author: 陈建春
- * @Date: 
+ * @Date:
  * @Description: Repository数据接口
  */
-public interface ChannelDao extends JpaRepository<Channel,String>,JpaSpecificationExecutor<Channel>{
-	
+public interface ChannelDao extends JpaRepository<Channel, String>, JpaSpecificationExecutor<Channel> {
+
 }

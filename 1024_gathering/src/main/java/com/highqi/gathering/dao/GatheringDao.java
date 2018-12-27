@@ -7,9 +7,9 @@ import com.highqi.gathering.pojo.Gathering;
 
 /**
  * @Author: 陈建春
- * @Date: 
+ * @Date:
  * @Description: Repository数据接口
  */
-public interface GatheringDao extends JpaRepository<Gathering,String>,JpaSpecificationExecutor<Gathering>{
-	
+public interface GatheringDao extends JpaRepository<Gathering, String>, JpaSpecificationExecutor<Gathering> {
+
 }

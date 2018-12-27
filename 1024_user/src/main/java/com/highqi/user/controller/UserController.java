@@ -1,8 +1,10 @@
 package com.highqi.user.controller;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Map;
 
+import com.highqi.user.constants.UserConstant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
@@ -13,8 +15,10 @@ import com.highqi.user.service.UserService;
 import entity.PageResult;
 import entity.Result;
 import util.IdWorker;
+import util.JwtUtil;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * @Author: 陈建春
@@ -31,6 +35,9 @@ public class UserController {
 
     @Autowired
     private IdWorker idWorker;
+
+    @Autowired
+    private JwtUtil jwtUtil;
 
     /**
      * 查询全部数据
@@ -109,6 +116,7 @@ public class UserController {
      */
     @DeleteMapping(value = "/{id}")
     public Result delete(@PathVariable String id) {
+
         userService.deleteById(id);
         return Result.OK();
     }
@@ -138,7 +146,7 @@ public class UserController {
 
             Date date = new Date();
             //通过校验  存数据库
-            user.setId(idWorker.nextId()+"");
+            user.setId(idWorker.nextId() + "");
             user.setFollowcount(0);
             user.setFanscount(0);
             user.setRegdate(date);
@@ -150,6 +158,27 @@ public class UserController {
         } else {
             return Result.error("验证码错误");
         }
+    }
+
+    /**
+     * 用户登录
+     */
+    @PostMapping(value = "/login")
+    public Result login(@RequestBody User user) {
+
+        user = userService.login(user);
+
+        if (user != null) {
+
+            String token = jwtUtil.createJWT(user.getId(), user.getNickname(), "user");
+
+            Map<String, String> result = new HashMap<>();
+
+            result.put("token", token);
+            result.put("role", "user");
+            return Result.OK(result);
+        }
+        return Result.loginError();
     }
 
 }

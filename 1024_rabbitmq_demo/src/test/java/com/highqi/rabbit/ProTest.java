@@ -24,7 +24,9 @@ public class ProTest {
     @Autowired
     private RabbitTemplate rabbitTemplate;
 
-    /** 直接发送模式 .*/
+    /**
+     * 直接发送模式 .
+     */
     @Test
     public void sendMsg() {
 
@@ -34,13 +36,17 @@ public class ProTest {
         }
     }
 
-    /** 分裂模式 .*/
+    /**
+     * 分裂模式 .
+     */
     @Test
     public void sendMsgF() {
         rabbitTemplate.convertAndSend(RabbitContent.EXCHAGE_NAME_FENLIE, "", new Girl(17, "lily", 'c').toString());
     }
 
-    /** 主题模式 .*/
+    /**
+     * 主题模式 .
+     */
     @Test
     public void sendMsgZ() {
         //  匹配high.#

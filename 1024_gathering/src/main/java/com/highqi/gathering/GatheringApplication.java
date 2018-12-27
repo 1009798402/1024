@@ -11,13 +11,13 @@ import util.IdWorker;
 @SpringBootApplication
 public class GatheringApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(GatheringApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(GatheringApplication.class, args);
+    }
 
-	@Bean
-	public IdWorker getIdWork(){
-		return new IdWorker();
-	}
-	
+    @Bean
+    public IdWorker getIdWork() {
+        return new IdWorker();
+    }
+
 }

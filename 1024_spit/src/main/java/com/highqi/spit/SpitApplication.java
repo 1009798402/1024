@@ -18,7 +18,7 @@ public class SpitApplication {
     }
 
     @Bean
-    public static IdWorker getIdWorker(){
+    public static IdWorker getIdWorker() {
         return new IdWorker();
     }
 }

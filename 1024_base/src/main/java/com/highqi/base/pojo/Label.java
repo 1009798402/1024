@@ -18,15 +18,25 @@ import java.io.Serializable;
 public class Label implements Serializable {
     @Id
     private String id;
-    /** 标签名称 .*/
+    /**
+     * 标签名称 .
+     */
     private String labelname;
-    /** 状态 .*/
+    /**
+     * 状态 .
+     */
     private String state;
-    /** 使用数量 .*/
+    /**
+     * 使用数量 .
+     */
     private Long count;
-    /** 推荐 .*/
+    /**
+     * 推荐 .
+     */
     private String recommend;
-    /** 关注数 .*/
+    /**
+     * 关注数 .
+     */
     private Long fans;
 
 }

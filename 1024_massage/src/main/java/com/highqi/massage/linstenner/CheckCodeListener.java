@@ -16,7 +16,7 @@ import java.util.Map;
 public class CheckCodeListener {
 
     @RabbitHandler
-    public void getMsg(Map<String,String> map){
+    public void getMsg(Map<String, String> map) {
         System.out.println("手机号: " + map.get("mobile"));
         System.out.println("验证码: " + map.get("checkcode"));
     }

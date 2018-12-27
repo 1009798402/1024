@@ -7,7 +7,10 @@ package com.highqi.user.constants;
  */
 public interface UserConstant {
 
-    String REDIS_CODE =  "checkcode_";
+    //Redis 存放短信验证码的 前缀
+    String REDIS_CODE = "checkcode_";
 
+    //rabbit mq 的队列名
     String RABBIT_QUEUES = "checkcode";
+
 }

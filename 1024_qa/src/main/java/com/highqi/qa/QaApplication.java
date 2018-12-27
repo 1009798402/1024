@@ -5,17 +5,22 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import util.IdWorker;
+import util.JwtUtil;
 
 @SpringBootApplication
 public class QaApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(QaApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(QaApplication.class, args);
+    }
 
-	@Bean
-	public IdWorker getIdWork(){
-		return new IdWorker();
-	}
-	
+    @Bean
+    public IdWorker getIdWork() {
+        return new IdWorker();
+    }
+
+    @Bean
+    public JwtUtil getJwtUtil() {
+        return new JwtUtil();
+    }
 }

@@ -93,7 +93,7 @@ public class ArticleService {
         if (article == null) {
             article = articleDao.findById(id).get();
             //存入缓存
-            redisTemplate.opsForValue().set(ArticleConstant.ARTICLEPRE + id , article ,10 , TimeUnit.SECONDS);
+            redisTemplate.opsForValue().set(ArticleConstant.ARTICLEPRE + id, article, 10, TimeUnit.SECONDS);
         }
         return article;
     }
@@ -176,8 +176,8 @@ public class ArticleService {
                 predicateList.add(cb.like(root.get("title").as(String.class), "%" + searchMap.get("title") + "%"));
             }
             // 文章正文
-            if (!StringUtils.isEmpty(searchMap.get("content"))) {
-                predicateList.add(cb.like(root.get("content").as(String.class), "%" + searchMap.get("content") + "%"));
+            if (!StringUtils.isEmpty(searchMap.get("contents"))) {
+                predicateList.add(cb.like(root.get("contents").as(String.class), "%" + searchMap.get("contents") + "%"));
             }
             // 文章封面
             if (!StringUtils.isEmpty(searchMap.get("image"))) {

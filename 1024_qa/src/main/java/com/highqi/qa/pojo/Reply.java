@@ -9,23 +9,23 @@ import java.io.Serializable;
 
 /**
  * @Author: 陈建春
- * @Date: 
- * @Description: 
+ * @Date:
+ * @Description:
  */
 @Data
 @Entity
-@Table(name="tb_reply")
-public class Reply implements Serializable{
+@Table(name = "tb_reply")
+public class Reply implements Serializable {
 
-	@Id
-	private String id;//编号
+    @Id
+    private String id;//编号
 
 
-	private String problemid;//问题ID
-	private String content;//回答内容
-	private java.util.Date createtime;//创建日期
-	private java.util.Date updatetime;//更新日期
-	private String userid;//回答人ID
-	private String nikename;//回答人昵称
+    private String problemid;//问题ID
+    private String content;//回答内容
+    private java.util.Date createtime;//创建日期
+    private java.util.Date updatetime;//更新日期
+    private String userid;//回答人ID
+    private String nikename;//回答人昵称
 
 }

@@ -31,106 +31,114 @@ import com.highqi.article.pojo.Channel;
 @Transactional
 public class ChannelService {
 
-	@Resource
-	private ChannelDao channelDao;
-	
-	@Resource
-	private IdWorker idWorker;
+    @Resource
+    private ChannelDao channelDao;
 
-	/**
-	 * 查询全部列表
-	 * @return
-	 */
-	public List<Channel> findAll() {
-		return channelDao.findAll();
-	}
+    @Resource
+    private IdWorker idWorker;
 
-	
-	/**
-	 * 条件查询+分页
-	 * @param whereMap
-	 * @param page
-	 * @param size
-	 * @return
-	 */
-	public Page<Channel> findSearch(Map whereMap, int page, int size) {
-		Specification<Channel> specification = createSpecification(whereMap);
-		PageRequest pageRequest =  PageRequest.of(page-1, size);
-		return channelDao.findAll(specification, pageRequest);
-	}
-
-	
-	/**
-	 * 条件查询
-	 * @param whereMap
-	 * @return
-	 */
-	public List<Channel> findSearch(Map whereMap) {
-		Specification<Channel> specification = createSpecification(whereMap);
-		return channelDao.findAll(specification);
-	}
-
-	/**
-	 * 根据ID查询实体
-	 * @param id
-	 * @return
-	 */
-	public Channel findById(String id) {
-		return channelDao.findById(id).get();
-	}
-
-	/**
-	 * 增加
-	 * @param channel
-	 */
-	public void add(Channel channel) {
-		channel.setId( idWorker.nextId()+"" );
-		channelDao.save(channel);
-	}
-
-	/**
-	 * 修改
-	 * @param channel
-	 */
-	public void update(Channel channel) {
-		channelDao.save(channel);
-	}
-
-	/**
-	 * 删除
-	 * @param id
-	 */
-	public void deleteById(String id) {
-		channelDao.deleteById(id);
-	}
-
-	/**
-	 * 动态条件构建
-	 * @param searchMap
-	 * @return
-	 */
-	private Specification<Channel> createSpecification(Map searchMap) {
+    /**
+     * 查询全部列表
+     *
+     * @return
+     */
+    public List<Channel> findAll() {
+        return channelDao.findAll();
+    }
 
 
-		return (Root<Channel> root, CriteriaQuery<?> query, CriteriaBuilder cb) -> {
-				List<Predicate> predicateList = new ArrayList<>();
-                // ID
-                if (!StringUtils.isEmpty(searchMap.get("id"))) {
-                	predicateList.add(cb.like(root.get("id").as(String.class), "%"+searchMap.get("id")+"%"));
-                }
-                // 频道名称
-                if (!StringUtils.isEmpty(searchMap.get("name"))) {
-                	predicateList.add(cb.like(root.get("name").as(String.class), "%"+searchMap.get("name")+"%"));
-                }
-                // 状态
-                if (!StringUtils.isEmpty(searchMap.get("state"))) {
-                	predicateList.add(cb.like(root.get("state").as(String.class), "%"+searchMap.get("state")+"%"));
-                }
-				
-				return cb.and( predicateList.toArray(new Predicate[predicateList.size()]));
+    /**
+     * 条件查询+分页
+     *
+     * @param whereMap
+     * @param page
+     * @param size
+     * @return
+     */
+    public Page<Channel> findSearch(Map whereMap, int page, int size) {
+        Specification<Channel> specification = createSpecification(whereMap);
+        PageRequest pageRequest = PageRequest.of(page - 1, size);
+        return channelDao.findAll(specification, pageRequest);
+    }
 
-		};
 
-	}
+    /**
+     * 条件查询
+     *
+     * @param whereMap
+     * @return
+     */
+    public List<Channel> findSearch(Map whereMap) {
+        Specification<Channel> specification = createSpecification(whereMap);
+        return channelDao.findAll(specification);
+    }
+
+    /**
+     * 根据ID查询实体
+     *
+     * @param id
+     * @return
+     */
+    public Channel findById(String id) {
+        return channelDao.findById(id).get();
+    }
+
+    /**
+     * 增加
+     *
+     * @param channel
+     */
+    public void add(Channel channel) {
+        channel.setId(idWorker.nextId() + "");
+        channelDao.save(channel);
+    }
+
+    /**
+     * 修改
+     *
+     * @param channel
+     */
+    public void update(Channel channel) {
+        channelDao.save(channel);
+    }
+
+    /**
+     * 删除
+     *
+     * @param id
+     */
+    public void deleteById(String id) {
+        channelDao.deleteById(id);
+    }
+
+    /**
+     * 动态条件构建
+     *
+     * @param searchMap
+     * @return
+     */
+    private Specification<Channel> createSpecification(Map searchMap) {
+
+
+        return (Root<Channel> root, CriteriaQuery<?> query, CriteriaBuilder cb) -> {
+            List<Predicate> predicateList = new ArrayList<>();
+            // ID
+            if (!StringUtils.isEmpty(searchMap.get("id"))) {
+                predicateList.add(cb.like(root.get("id").as(String.class), "%" + searchMap.get("id") + "%"));
+            }
+            // 频道名称
+            if (!StringUtils.isEmpty(searchMap.get("name"))) {
+                predicateList.add(cb.like(root.get("name").as(String.class), "%" + searchMap.get("name") + "%"));
+            }
+            // 状态
+            if (!StringUtils.isEmpty(searchMap.get("state"))) {
+                predicateList.add(cb.like(root.get("state").as(String.class), "%" + searchMap.get("state") + "%"));
+            }
+
+            return cb.and(predicateList.toArray(new Predicate[predicateList.size()]));
+
+        };
+
+    }
 
 }

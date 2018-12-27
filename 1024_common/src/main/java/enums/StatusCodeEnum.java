@@ -12,23 +12,35 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum StatusCodeEnum {
 
-    /** 成功. */
-    OK(20000,"成功"),
+    /**
+     * 成功.
+     */
+    OK(20000, "成功"),
 
-    /** 失败. */
-    ERROR(20001,"失败"),
+    /**
+     * 失败.
+     */
+    ERROR(20001, "失败"),
 
-    /** 用户名或密码错误. */
-    LOGIN_ERROR(20002,"用户名或密码错误"),
+    /**
+     * 用户名或密码错误.
+     */
+    LOGIN_ERROR(20002, "用户名或密码错误"),
 
-    /** 权限不足. */
-    ACCESS_ERROR(20003,"权限不足"),
+    /**
+     * 权限不足.
+     */
+    ACCESS_ERROR(20003, "权限不足"),
 
-    /** 远程调用失败. */
-    REMOTE_ERROR(20004,"远程调用失败"),
+    /**
+     * 远程调用失败.
+     */
+    REMOTE_ERROR(20004, "远程调用失败"),
 
-    /** 重复操作. */
-    REP_ERROR(20004,"重复操作");
+    /**
+     * 重复操作.
+     */
+    REP_ERROR(20004, "重复操作");
 
     private Integer statusCode;
     private String msg;

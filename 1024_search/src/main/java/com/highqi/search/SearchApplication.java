@@ -18,7 +18,7 @@ public class SearchApplication {
     }
 
     @Bean
-    public IdWorker getIdWorker(){
+    public IdWorker getIdWorker() {
         return new IdWorker();
     }
 }

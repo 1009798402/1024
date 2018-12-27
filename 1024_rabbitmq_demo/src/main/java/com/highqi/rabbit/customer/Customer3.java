@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
 public class Customer3 {
 
     @RabbitHandler
-    public void getMsg(String msg){
+    public void getMsg(String msg) {
         System.out.println("orange: " + msg);
     }
 }

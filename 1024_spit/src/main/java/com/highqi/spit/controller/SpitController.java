@@ -27,38 +27,48 @@ public class SpitController {
     @Resource
     private IdWorker idWorker;
 
-    /** findAll .**/
+    /**
+     * findAll .
+     **/
     @GetMapping
-    public Result findAll(){
+    public Result findAll() {
         return Result.OK(spitService.findAll());
     }
 
-    /** 根据ID找 .*/
+    /**
+     * 根据ID找 .
+     */
     @GetMapping("/{spitId}")
-    public Result findById(@PathVariable String spitId){
+    public Result findById(@PathVariable String spitId) {
         return Result.OK(spitService.findById(spitId));
     }
 
-    /** 添加 .*/
+    /**
+     * 添加 .
+     */
     @PostMapping
-    public Result save(@RequestBody Spit spit){
-        spit.set_id(idWorker.nextId()+"");
+    public Result save(@RequestBody Spit spit) {
+        spit.set_id(idWorker.nextId() + "");
         spitService.save(spit);
         return Result.OK();
     }
 
-    /** 更新 .*/
+    /**
+     * 更新 .
+     */
     @PutMapping("/{spitId}")
     public Result save(@PathVariable String spitId,
-                       @RequestBody Spit spit){
+                       @RequestBody Spit spit) {
         spit.set_id(spitId);
         spitService.save(spit);
         return Result.OK();
     }
 
-    /** 删除 .*/
+    /**
+     * 删除 .
+     */
     @DeleteMapping("/{spitId}")
-    public Result delete(@PathVariable String spitId){
+    public Result delete(@PathVariable String spitId) {
         spitService.deleteById(spitId);
         return Result.OK();
     }
@@ -66,26 +76,27 @@ public class SpitController {
 
     /**
      * 父节点ID查询
-     * @param parentid  父ID
+     *
+     * @param parentid 父ID
      */
     @GetMapping("/comment/{parentid}/{page}/{size}")
     public Result findByParentId(@PathVariable String parentid,
                                  @PathVariable Integer page,
-                                 @PathVariable Integer size){
+                                 @PathVariable Integer size) {
 
         Page<Spit> spits = spitService.findByParentId(parentid, page, size);
-        return Result.OK(new PageResult<>(spits.getTotalElements(),spits.getContent()));
+        return Result.OK(new PageResult<>(spits.getTotalElements(), spits.getContent()));
     }
 
 
     /**
      * 点赞
      */
-    @PutMapping(value="/thumbup/{id}")
-    public Result doGood(@PathVariable String id){
+    @PutMapping(value = "/thumbup/{id}")
+    public Result doGood(@PathVariable String id) {
         //先写死用户标识
         String userID = "test2";
-        return spitService.doGood2(id,userID) ? Result.OK() : Result.error("未查询到这条吐槽或者已经点过赞...");
+        return spitService.doGood2(id, userID) ? Result.OK() : Result.error("未查询到这条吐槽或者已经点过赞...");
     }
 
 

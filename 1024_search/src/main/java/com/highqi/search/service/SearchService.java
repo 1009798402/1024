@@ -26,22 +26,22 @@ public class SearchService {
     @Resource
     private IdWorker idWorker;
 
-    public void save(Article article){
-        article.setId(idWorker.nextId()+"");
+    public void save(Article article) {
+        article.setId(idWorker.nextId() + "");
         searchDao.save(article);
     }
 
-    public  Page<Article> findAll(int page,int size){
-        Pageable pageable = PageRequest.of(page-1 , size);
+    public Page<Article> findAll(int page, int size) {
+        Pageable pageable = PageRequest.of(page - 1, size);
         return searchDao.findAll(pageable);
     }
 
-    public void delete(String id){
+    public void delete(String id) {
         searchDao.deleteById(id);
     }
 
     public Page<Article> keySearch(String key, int page, int size) {
-        Pageable pageable = PageRequest.of(page-1,size);
-        return searchDao.findByTitleLikeOrContentLike(key,key,pageable);
+        Pageable pageable = PageRequest.of(page - 1, size);
+        return searchDao.findByTitleLikeOrContentLike(key, key, pageable);
     }
 }

@@ -22,28 +22,32 @@ public class SearchController {
     @Resource
     private SearchService searchService;
 
-    /** 存. */
+    /**
+     * 存.
+     */
     @PostMapping()
-    public Result saveArticle(@RequestBody Article article){
+    public Result saveArticle(@RequestBody Article article) {
         searchService.save(article);
         return Result.OK();
     }
 
-    /** 关键字搜索. */
+    /**
+     * 关键字搜索.
+     */
     @GetMapping("/search/{key}/{page}/{size}")
     public Result keySearch(@PathVariable String key,
                             @PathVariable int page,
-                            @PathVariable int size){
+                            @PathVariable int size) {
 
         Page<Article> articles = searchService.keySearch(key, page, size);
-        return Result.OK(new PageResult<>(articles.getTotalElements(),articles.getContent()));
+        return Result.OK(new PageResult<>(articles.getTotalElements(), articles.getContent()));
     }
 
     @GetMapping("/{page}/{size}")
     public Result getAll(@PathVariable int page,
-                         @PathVariable int size){
+                         @PathVariable int size) {
         Page<Article> articles = searchService.findAll(page, size);
-        return Result.OK(new PageResult<>(articles.getTotalElements(),articles.getContent()));
+        return Result.OK(new PageResult<>(articles.getTotalElements(), articles.getContent()));
     }
 
 }

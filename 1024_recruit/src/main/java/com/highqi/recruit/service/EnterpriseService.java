@@ -114,12 +114,12 @@ public class EnterpriseService {
 
     /**
      * 查询是否热门企业
+     *
      * @param isHot 是否热门 0否 1是
      */
-    public List<Enterprise> findByIsHot(String isHot){
+    public List<Enterprise> findByIsHot(String isHot) {
         return enterpriseDao.findByIshot(isHot);
     }
-
 
 
     /**
@@ -134,7 +134,7 @@ public class EnterpriseService {
         return (Root<Enterprise> root, CriteriaQuery<?> query, CriteriaBuilder cb) -> {
             List<Predicate> predicateList = new ArrayList<>();
             // ID
-            if (!StringUtils.isEmpty(searchMap.get("id"))){
+            if (!StringUtils.isEmpty(searchMap.get("id"))) {
                 predicateList.add(cb.like(root.get("id").as(String.class), "%" + searchMap.get("id") + "%"));
             }
 

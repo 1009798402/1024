@@ -9,19 +9,19 @@ import java.io.Serializable;
 
 /**
  * @Author: 陈建春
- * @Date: 
- * @Description: 
+ * @Date:
+ * @Description:
  */
 @Data
 @Entity
-@Table(name="tb_channel")
-public class Channel implements Serializable{
+@Table(name = "tb_channel")
+public class Channel implements Serializable {
 
-	@Id
-	private String id;//ID
+    @Id
+    private String id;//ID
 
 
-	private String name;//频道名称
-	private String state;//状态
+    private String name;//频道名称
+    private String state;//状态
 
 }
