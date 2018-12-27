@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.*;
 import com.highqi.user.pojo.Admin;
 import com.highqi.user.service.AdminService;
 
-import entity.PageResult;
-import entity.Result;
-import util.JwtUtil;
+import com.highqi.common.entity.PageResult;
+import com.highqi.common.entity.Result;
+import com.highqi.common.util.JwtUtil;
 
 import javax.annotation.Resource;
 

@@ -1,6 +1,6 @@
-package entity;
+package com.highqi.common.entity;
 
-import enums.StatusCodeEnum;
+import com.highqi.common.enums.StatusCodeEnum;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

@@ -16,7 +16,7 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import org.springframework.transaction.annotation.Transactional;
-import util.IdWorker;
+import com.highqi.common.util.IdWorker;
 
 import com.highqi.recruit.dao.RecruitDao;
 import com.highqi.recruit.pojo.Recruit;

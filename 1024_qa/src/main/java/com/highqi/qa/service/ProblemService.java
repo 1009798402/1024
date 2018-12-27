@@ -11,7 +11,7 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import javax.servlet.http.HttpServletRequest;
 
-import contents.CommonContent;
+import com.highqi.common.contents.CommonContent;
 import io.jsonwebtoken.Claims;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -22,7 +22,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 
-import util.IdWorker;
+import com.highqi.common.util.IdWorker;
 
 import com.highqi.qa.dao.ProblemDao;
 import com.highqi.qa.pojo.Problem;
@@ -185,8 +185,8 @@ public class ProblemService {
                 predicateList.add(cb.like(root.get("title").as(String.class), "%" + searchMap.get("title") + "%"));
             }
             // 内容
-            if (!StringUtils.isEmpty(searchMap.get("contents"))) {
-                predicateList.add(cb.like(root.get("contents").as(String.class), "%" + searchMap.get("contents") + "%"));
+            if (!StringUtils.isEmpty(searchMap.get("com/highqi/common/contents"))) {
+                predicateList.add(cb.like(root.get("com/highqi/common/contents").as(String.class), "%" + searchMap.get("com/highqi/common/contents") + "%"));
             }
             // 用户ID
             if (!StringUtils.isEmpty(searchMap.get("userid"))) {

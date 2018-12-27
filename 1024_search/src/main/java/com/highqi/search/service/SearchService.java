@@ -7,10 +7,9 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import util.IdWorker;
+import com.highqi.common.util.IdWorker;
 
 import javax.annotation.Resource;
-import java.util.List;
 
 /**
  * @Author: 陈建春

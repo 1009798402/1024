@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.*;
 import com.highqi.gathering.pojo.Gathering;
 import com.highqi.gathering.service.GatheringService;
 
-import entity.PageResult;
-import entity.Result;
+import com.highqi.common.entity.PageResult;
+import com.highqi.common.entity.Result;
 
 import javax.annotation.Resource;
 

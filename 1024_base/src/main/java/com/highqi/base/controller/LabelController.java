@@ -2,12 +2,12 @@ package com.highqi.base.controller;
 
 import com.highqi.base.pojo.Label;
 import com.highqi.base.service.LabelService;
-import entity.PageResult;
-import entity.Result;
+import com.highqi.common.entity.PageResult;
+import com.highqi.common.entity.Result;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
-import util.IdWorker;
+import com.highqi.common.util.IdWorker;
 
 import javax.annotation.Resource;
 import java.util.List;

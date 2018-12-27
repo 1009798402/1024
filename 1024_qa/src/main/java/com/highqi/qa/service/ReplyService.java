@@ -17,7 +17,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 
-import util.IdWorker;
+import com.highqi.common.util.IdWorker;
 
 import com.highqi.qa.dao.ReplyDao;
 import com.highqi.qa.pojo.Reply;
@@ -131,8 +131,8 @@ public class ReplyService {
                 predicateList.add(cb.like(root.get("problemid").as(String.class), "%" + searchMap.get("problemid") + "%"));
             }
             // 回答内容
-            if (!StringUtils.isEmpty(searchMap.get("contents"))) {
-                predicateList.add(cb.like(root.get("contents").as(String.class), "%" + searchMap.get("contents") + "%"));
+            if (!StringUtils.isEmpty(searchMap.get("com/highqi/common/contents"))) {
+                predicateList.add(cb.like(root.get("com/highqi/common/contents").as(String.class), "%" + searchMap.get("com/highqi/common/contents") + "%"));
             }
             // 回答人ID
             if (!StringUtils.isEmpty(searchMap.get("userid"))) {

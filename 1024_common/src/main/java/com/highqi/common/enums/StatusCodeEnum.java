@@ -1,4 +1,4 @@
-package enums;
+package com.highqi.common.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

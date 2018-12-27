@@ -2,8 +2,8 @@ package com.highqi.search.controller;
 
 import com.highqi.search.pojo.Article;
 import com.highqi.search.service.SearchService;
-import entity.PageResult;
-import entity.Result;
+import com.highqi.common.entity.PageResult;
+import com.highqi.common.entity.Result;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 

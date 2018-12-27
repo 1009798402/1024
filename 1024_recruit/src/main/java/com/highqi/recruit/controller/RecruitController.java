@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.*;
 import com.highqi.recruit.pojo.Recruit;
 import com.highqi.recruit.service.RecruitService;
 
-import entity.PageResult;
-import entity.Result;
+import com.highqi.common.entity.PageResult;
+import com.highqi.common.entity.Result;
 
 import javax.annotation.Resource;
 

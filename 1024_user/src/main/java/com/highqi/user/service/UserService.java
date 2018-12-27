@@ -14,28 +14,25 @@ import javax.persistence.criteria.Root;
 import javax.servlet.http.HttpServletRequest;
 
 import com.highqi.user.constants.UserConstant;
-import contents.CommonContent;
+import com.highqi.common.contents.CommonContent;
 import io.jsonwebtoken.Claims;
 import org.apache.commons.lang3.RandomStringUtils;
-import org.apache.commons.lang3.RandomUtils;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.env.Environment;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.jpa.domain.Specification;
-import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import org.springframework.transaction.annotation.Transactional;
 
-import util.IdWorker;
+import com.highqi.common.util.IdWorker;
 
 import com.highqi.user.dao.UserDao;
 import com.highqi.user.pojo.User;
-import util.JwtUtil;
+import com.highqi.common.util.JwtUtil;
 
 /**
  * @Author: 陈建春

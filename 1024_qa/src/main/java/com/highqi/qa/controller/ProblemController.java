@@ -2,14 +2,16 @@ package com.highqi.qa.controller;
 
 import java.util.Map;
 
+import com.highqi.qa.client.LabelClient;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
 import com.highqi.qa.pojo.Problem;
 import com.highqi.qa.service.ProblemService;
 
-import entity.PageResult;
-import entity.Result;
+import com.highqi.common.entity.PageResult;
+import com.highqi.common.entity.Result;
 
 import javax.annotation.Resource;
 
@@ -26,6 +28,8 @@ public class ProblemController {
     @Resource
     private ProblemService problemService;
 
+    @Autowired
+    private LabelClient labelClient;
 
     /**
      * 查询全部数据
@@ -149,4 +153,19 @@ public class ProblemController {
     }
 
 
+    /**
+     * 测试feign
+     */
+    @GetMapping(value = "/label/{LabelID}")
+    public Result getLabelByLabelId(@PathVariable String LabelID){
+        return labelClient.getLabel(LabelID);
+    }
+
+    /**
+     * 测试feign2
+     */
+    @GetMapping(value = "/label")
+    public Result getLabels(){
+        return labelClient.getAll();
+    }
 }

@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.*;
 import com.highqi.recruit.pojo.Enterprise;
 import com.highqi.recruit.service.EnterpriseService;
 
-import entity.PageResult;
-import entity.Result;
+import com.highqi.common.entity.PageResult;
+import com.highqi.common.entity.Result;
 
 import javax.annotation.Resource;
 

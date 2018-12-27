@@ -2,12 +2,11 @@ package com.highqi.spit.controller;
 
 import com.highqi.spit.pojo.Spit;
 import com.highqi.spit.service.SpitService;
-import entity.PageResult;
-import entity.Result;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.highqi.common.entity.PageResult;
+import com.highqi.common.entity.Result;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
-import util.IdWorker;
+import com.highqi.common.util.IdWorker;
 
 import javax.annotation.Resource;
 

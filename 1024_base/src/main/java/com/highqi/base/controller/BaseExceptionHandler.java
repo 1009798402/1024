@@ -1,6 +1,6 @@
 package com.highqi.base.controller;
 
-import entity.Result;
+import com.highqi.common.entity.Result;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestControllerAdvice;

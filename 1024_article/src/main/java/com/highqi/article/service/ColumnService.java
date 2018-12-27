@@ -17,7 +17,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import org.springframework.transaction.annotation.Transactional;
 
-import util.IdWorker;
+import com.highqi.common.util.IdWorker;
 
 import com.highqi.article.dao.ColumnDao;
 import com.highqi.article.pojo.Column;

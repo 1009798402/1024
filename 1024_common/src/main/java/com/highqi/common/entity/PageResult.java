@@ -1,4 +1,4 @@
-package entity;
+package com.highqi.common.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

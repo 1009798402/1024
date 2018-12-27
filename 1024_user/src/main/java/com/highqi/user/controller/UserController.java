@@ -4,7 +4,6 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.highqi.user.constants.UserConstant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
@@ -12,13 +11,12 @@ import org.springframework.web.bind.annotation.*;
 import com.highqi.user.pojo.User;
 import com.highqi.user.service.UserService;
 
-import entity.PageResult;
-import entity.Result;
-import util.IdWorker;
-import util.JwtUtil;
+import com.highqi.common.entity.PageResult;
+import com.highqi.common.entity.Result;
+import com.highqi.common.util.IdWorker;
+import com.highqi.common.util.JwtUtil;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
 
 /**
  * @Author: 陈建春

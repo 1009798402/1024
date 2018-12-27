@@ -20,7 +20,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import org.springframework.transaction.annotation.Transactional;
 
-import util.IdWorker;
+import com.highqi.common.util.IdWorker;
 
 import com.highqi.article.dao.ArticleDao;
 import com.highqi.article.pojo.Article;
@@ -176,8 +176,8 @@ public class ArticleService {
                 predicateList.add(cb.like(root.get("title").as(String.class), "%" + searchMap.get("title") + "%"));
             }
             // 文章正文
-            if (!StringUtils.isEmpty(searchMap.get("contents"))) {
-                predicateList.add(cb.like(root.get("contents").as(String.class), "%" + searchMap.get("contents") + "%"));
+            if (!StringUtils.isEmpty(searchMap.get("com/highqi/common/contents"))) {
+                predicateList.add(cb.like(root.get("com/highqi/common/contents").as(String.class), "%" + searchMap.get("com/highqi/common/contents") + "%"));
             }
             // 文章封面
             if (!StringUtils.isEmpty(searchMap.get("image"))) {

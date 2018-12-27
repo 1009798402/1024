@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.*;
 import com.highqi.article.pojo.Article;
 import com.highqi.article.service.ArticleService;
 
-import entity.PageResult;
-import entity.Result;
+import com.highqi.common.entity.PageResult;
+import com.highqi.common.entity.Result;
 
 
 /**
