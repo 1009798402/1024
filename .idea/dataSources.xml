@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="tensquare_base@192.168.68.128" uuid="e0dece33-ee1d-4c9d-a509-176a12914d94">
+    <data-source source="LOCAL" name="tensquare_base@192.168.68.129" uuid="c0919e52-5b93-4ff4-beed-0f3c0de3f128">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://192.168.68.128:3306/tensquare_base?characterEncoding=utf-8</jdbc-url>
+      <jdbc-url>jdbc:mysql://192.168.68.129:3306/tensquare_base?characterEncoding=utf-8</jdbc-url>
       <driver-properties>
         <property name="autoReconnect" value="true" />
         <property name="zeroDateTimeBehavior" value="convertToNull" />

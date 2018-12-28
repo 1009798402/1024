@@ -179,4 +179,18 @@ public class UserController {
         return Result.loginError();
     }
 
+    /**
+     * 添加好友引起的  user的关注数 friend的粉丝数 +1或者-1的方法
+     * @param flag   1. 关注,粉丝+1     -1. 关注,粉丝-1
+     * @param userid  用户Id
+     * @param friendid friend Id
+     */
+    @PutMapping(value = "/{flag}/{userid}/{friendid}")
+    public void updateUserFollowCountAndFriendFansCount(@PathVariable int flag,
+                                                        @PathVariable String userid,
+                                                        @PathVariable String friendid){
+
+        userService.updateUserFollowCountAndFriendFansCount(flag,userid,friendid);
+    }
+
 }

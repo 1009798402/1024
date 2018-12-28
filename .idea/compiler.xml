@@ -9,6 +9,8 @@
         <module name="1024_article" />
         <module name="1024_base" />
         <module name="1024_common" />
+        <module name="1024_eureka" />
+        <module name="1024_friend" />
         <module name="1024_gathering" />
         <module name="1024_massage" />
         <module name="1024_qa" />
@@ -25,6 +27,8 @@
       <module name="1024_article" options="-parameters" />
       <module name="1024_base" options="-parameters" />
       <module name="1024_common" options="-parameters" />
+      <module name="1024_eureka" options="-parameters" />
+      <module name="1024_friend" options="-parameters" />
       <module name="1024_gathering" options="-parameters" />
       <module name="1024_massage" options="-parameters" />
       <module name="1024_qa" options="-parameters" />

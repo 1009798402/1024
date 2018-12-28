@@ -20,6 +20,7 @@
         <module>1024_user</module>
         <module>1024_massage</module>
         <module>1024_eureka</module>
+        <module>1024_friend</module>
     </modules>
     <packaging>pom</packaging>
 

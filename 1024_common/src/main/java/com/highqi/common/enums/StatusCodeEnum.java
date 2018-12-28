@@ -40,7 +40,27 @@ public enum StatusCodeEnum {
     /**
      * 重复操作.
      */
-    REP_ERROR(20004, "重复操作");
+    REP_ERROR(20004, "重复操作"),
+
+    /**
+     * 未登录.
+     */
+    NOT_LOGIN(20005, "please login!"),
+
+    /**
+     * 参数异常.
+     */
+    PARAMETER_ERROR(20006, "parameter error!"),
+
+    /**
+     * 重复添加好友.
+     */
+    REPEAT_ADD_FRIEND(20007, "repeat add friend!"),
+
+    /**
+     * 重复添加非好友.
+     */
+    REPEAT_ADD_NOTFRIEND(20008, "repeat add notfriend!");
 
     private Integer statusCode;
     private String msg;

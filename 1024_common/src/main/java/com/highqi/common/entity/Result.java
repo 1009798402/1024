@@ -39,8 +39,12 @@ public class Result {
 
     }
 
-    public static Result error(Object data) {
+    public static Result error(String data) {
         return new Result(false, StatusCodeEnum.ERROR.getStatusCode(), "error", data);
+    }
+
+    public static Result error(String msg,Object data) {
+        return new Result(false, StatusCodeEnum.ERROR.getStatusCode(), msg, data);
     }
 
     public static Result loginError() {

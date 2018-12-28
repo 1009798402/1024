@@ -248,4 +248,11 @@ public class UserService {
         }
         return null;
     }
+
+
+    public void updateUserFollowCountAndFriendFansCount(int flag, String userid, String friendid) {
+
+        userDao.updateUserFollowCount(flag,userid);
+        userDao.updateFriendFansCount(flag,friendid);
+    }
 }
