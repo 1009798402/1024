@@ -5,11 +5,15 @@ import com.highqi.base.service.LabelService;
 import com.highqi.common.entity.PageResult;
 import com.highqi.common.entity.Result;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 import com.highqi.common.util.IdWorker;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
@@ -20,6 +24,7 @@ import java.util.List;
 @Slf4j
 @CrossOrigin
 @RestController
+@RefreshScope
 @RequestMapping("/label")
 public class LabelController {
 
@@ -27,7 +32,10 @@ public class LabelController {
     private LabelService labelService;
     @Resource
     private IdWorker idWorker;
-
+    @Autowired
+    private HttpServletRequest request;
+    @Value("${testbus}")
+    private String testbus;
     /**
      * 添加标签
      *
@@ -37,9 +45,11 @@ public class LabelController {
     @PostMapping
     public Result addLabel(@RequestBody Label label) {
 
+
+
         label.setId(idWorker.nextId() + "");
         labelService.save(label);
-        log.info("【增加标签】 label = {}", label);
+        log.info("【测试动态改变】 testbus = {}", testbus);
         return Result.OK();
     }
 
@@ -50,6 +60,8 @@ public class LabelController {
      */
     @GetMapping
     public Result getAll() {
+
+        System.out.println(request.getHeader("AuthorizationToken"));
 
         List<Label> labelList = labelService.getAll();
         log.info("【标签全部列表】 labelList = {}", labelList);

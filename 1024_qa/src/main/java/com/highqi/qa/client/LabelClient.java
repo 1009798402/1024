@@ -1,10 +1,10 @@
 package com.highqi.qa.client;
 
 import com.highqi.common.entity.Result;
+import com.highqi.qa.client.impl.LabelClientImpl;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * @Author: 陈建春
@@ -12,13 +12,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @Description:
  */
 
-@FeignClient("1024-base")
-@RequestMapping("/label")
+@FeignClient(value = "1024-base",fallback = LabelClientImpl.class)
 public interface LabelClient {
 
-    @GetMapping("/{labelId}")
+    @GetMapping("/label/{labelId}")
     Result getLabel(@PathVariable(value = "labelId") String labelId);
 
-    @GetMapping
+    @GetMapping("/label")
     Result getAll();
 }

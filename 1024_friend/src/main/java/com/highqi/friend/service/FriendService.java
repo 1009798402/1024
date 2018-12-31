@@ -4,7 +4,6 @@ import com.highqi.friend.dao.FriendDao;
 import com.highqi.friend.dao.NotFriendDao;
 import com.highqi.friend.pojo.Friend;
 import com.highqi.friend.pojo.NotFriend;
-import org.aspectj.weaver.ast.Not;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

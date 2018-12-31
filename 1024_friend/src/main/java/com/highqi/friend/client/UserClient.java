@@ -1,9 +1,9 @@
 package com.highqi.friend.client;
 
+import com.highqi.friend.client.impl.UserClientImpl;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * @Author: 陈建春
@@ -11,11 +11,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @Description:
  */
 
-@FeignClient("1024-user")
-@RequestMapping("/user")
+@FeignClient(value = "1024-user",fallback = UserClientImpl.class)
 public interface UserClient {
 
-    @PutMapping(value = "/{flag}/{userid}/{friendid}")
+    @PutMapping(value = "/user/{flag}/{userid}/{friendid}")
     void updateUserFollowCountAndFriendFansCount(@PathVariable(value = "flag") int flag,
                                                  @PathVariable(value = "userid") String userid,
                                                  @PathVariable(value = "friendid") String friendid);

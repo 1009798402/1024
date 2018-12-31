@@ -1,0 +1,22 @@
+server:
+  port: 12000
+spring:
+  application:
+    name: 1024-config
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/1009798402/1024-config.git
+
+#RabbitMQ 的配置
+  rabbitmq:
+    host: 192.168.68.129
+#BUS总线
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh
+
+
