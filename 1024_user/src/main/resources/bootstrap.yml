@@ -8,4 +8,4 @@ spring:
       #主干/分支
       label: master
       #config的url
-      uri: http://localhost:12000
+      uri: http://192.168.68.129:12000
