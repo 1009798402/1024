@@ -16,7 +16,6 @@
         <module>1024_gathering</module>
         <module>1024_spit</module>
         <module>1024_search</module>
-        <module>1024_rabbitmq_demo</module>
         <module>1024_user</module>
         <module>1024_massage</module>
         <module>1024_eureka</module>

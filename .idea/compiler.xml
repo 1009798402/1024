@@ -16,7 +16,6 @@
         <module name="1024_manager" />
         <module name="1024_massage" />
         <module name="1024_qa" />
-        <module name="1024_rabbitmq_demo" />
         <module name="1024_recruit" />
         <module name="1024_search" />
         <module name="1024_spit" />
@@ -24,6 +23,9 @@
         <module name="1024_web" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="1024_rabbitmq_demo" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
