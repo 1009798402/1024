@@ -23,6 +23,7 @@
         <module>1024_manager</module>
         <module>1024_web</module>
         <module>1024_config</module>
+        <module>swagger_demo</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -80,6 +81,25 @@
             <groupId>org.javassist</groupId>
             <artifactId>javassist</artifactId>
             <version>3.23.1-GA</version>
+        </dependency>
+
+        <!--yml解析-->
+        <dependency>
+            <groupId>org.yaml</groupId>
+            <artifactId>snakeyaml</artifactId>
+            <version>1.23</version>
+        </dependency>
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>6.2</version>
+            <type>jar</type>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.yaml</groupId>
+                    <artifactId>snakeyaml</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
         <!--apache lang3-->
